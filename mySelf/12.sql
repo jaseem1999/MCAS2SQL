@@ -1,0 +1,15 @@
+use student;
+create table details(Id int,Name varchar(10),Mark1 int,Mark2 int,Mark3 int,Total int);
+insert into details values(1,"Varun",50,60,70,180);
+insert into details values(2,"Adwaith",60,60,80,200);
+insert into details values(3,"Adil",90,80,70,240);
+insert into details values(4,"Yaswanth",100,80,70,250);
+insert into details values(5,"Reena",5,10,15,30);
+insert into details values(6,"Sarang",5,10,15,30);
+insert into details values(7,"Reema",15,10,15,40);
+insert into details values(8,"reema",15,10,15,NULL);
+update details set total=250 where Name="Varun";
+select * from details;
+delete from details where Name="Sarang";
+select Total,Name from details where Total is null;
+update details set Name='Robin' where Name='Adwaith';
