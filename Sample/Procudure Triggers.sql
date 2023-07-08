@@ -1,6 +1,6 @@
 create database triggers;
 use triggers;
-
+show tables;
 create table tri(id int not null auto_increment,name varchar(40),age int,primary key(id));
 
 show tables;
