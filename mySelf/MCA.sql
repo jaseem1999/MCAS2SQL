@@ -200,3 +200,5 @@ insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(103,"rakkal
 insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(104,"Kalappatt","pazhur","Mavoor",5134);
 
 select * from employee right join EmpAdress on employee.Emp_id = EmpAdress.EmpIdForKey;
+
+desc EmpAdress

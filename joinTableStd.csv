@@ -1,0 +1,8 @@
+uni_id,Uni_name,Name,Home,Street,PostOffice,State,pin,roll_no,college_department,course,semester,university_department
+U001,ABC University,John,123 Main St,Central Ave,Central PO,California,12345,101,Computer Science,B.Tech,Spring 2023,Computer Science
+U002,XYZ University,Alice,456 Elm St,Park Ave,Park PO,New York,54321,102,Electrical Engineering,B.E.,Fall 2023,Electrical Engineering
+U003,DEF University,Bob,789 Oak St,Maple St,Maple PO,Florida,98765,103,Mechanical Engineering,B.Tech,Summer 2023,Mechanical Engineering
+U004,LMN University,Emily,101 Pine St,Pine Ave,Pine PO,Texas,13579,104,Biology,B.Sc.,Spring 2023,Biology
+U005,PQR University,David,202 Cedar St,Cedar Ave,Cedar PO,Ohio,24680,105,Physics,B.Sc.,Fall 2023,Physics
+U006,UVW University,Sophia,303 Walnut St,Walnut Ave,Walnut PO,Illinois,86420,106,Mathematics,B.A.,Summer 2023,Mathematics
+U007,GHI University,Oliver,404 Birch St,Birch Ave,Birch PO,Michigan,97531,107,Chemistry,B.Sc.,Spring 2023,Chemistry

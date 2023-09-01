@@ -26,23 +26,31 @@ insert into expense value(1,0);
 
 CREATE TRIGGER aftrExpBudget AFTER INSERT ON project
 FOR EACH ROW
-    UPDATE expense SET AfterExpBudget = (SELECT SUM(total) FROM project) WHERE id = 1;
-
+    UPDATE expense SET AfterExpBudget = (SELECT SUM(exp) FROM project) WHERE id = 1;
     
 
+create trigger pranav before delete on project for each row insert into backupProject value(old.proId,old.projectName,old.exp,old.total,old.ClientName,old.budget);
+drop trigger backupDelete;
 
 
-
-drop trigger aftrExpBudget;
 
 update project set exp = 2021 where  proId = 1;
 
 INSERT INTO project (proId, projectName, exp, ClientName, budget)
-VALUES (10, "ChatApt", 10, "AjkGroup", 320);
+VALUES (12, "GTMS", 36785, "AjkGroup",145678 );
 
 
 desc project;
 
 select * from project;
+
+delete from project where proId= 11;
+
+describe backupProject;
 select * from expense;
 
+create table backupProject(proId int,projectName varchar(30),exp int,total int, ClientName varchar(30),budget int);
+
+delete from project where proId= 8;
+
+select * from backupProject;

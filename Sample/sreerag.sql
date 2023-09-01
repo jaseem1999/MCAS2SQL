@@ -152,9 +152,81 @@ insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(104,"Kalapp
 
 select * from EmpAdress;
 
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id order by Name asc;
+
+commit;
+
+savepoint sample;
+
 select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id;
 
+insert into employee values(105,"Ram");
+insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(105,"Nattkkal","Ollari","Koxhikode",12314);
 
-					
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id;
+
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id; 
+
+commit;
+
+start transaction;
+
+insert into employee values(106,"Lal");
+insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(106,"JothiHouse","Ollari","Koxhikode",12314);
+
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id; 
+
+rollback;
+
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id; 
+savepoint sample;
+
+commit;
+
+start transaction;
+
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id; 
+insert into employee values(107,"Rohan");
+insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(107,"JothiHouse","Ollari","Koxhikode",12314);
+rollback;
+start transaction;
+savepoint d1;
+select * from employee;
+select * from EmpAdress left join employee on EmpAdress.EmpIdForKey = employee.Emp_id;
+insert into employee values(120,"Salam");
+insert into EmpAdress(EmpIdForKey,Home,Post_office,Street,Pin)values(120,"House","Oll","kode",12314);
+rollback to d1;
+release savepoint d1;
+commit;
+
+start transaction;
+
+use ebill;
+show tables;
+
+select * from bills;
+drop table backupBills;
+create table backupBills(
+		id int,
+        name varchar(30),
+        consumer_no varchar(40),
+        unit int,
+        amount_unit int,
+        amount int,
+        gst int,
+        total_amount int
+);
 
 
+DROP TRIGGER IF EXISTS backupOfBill;
+
+CREATE TRIGGER backupOfBill BEFORE DELETE ON bills FOR EACH ROW
+INSERT INTO backupBills (id, name, consumer_no, unit, amount_unit, amount, gst, total_amount)
+VALUES (OLD.id, OLD.name, OLD.consumer_no, OLD.unit, OLD.amount_unit, OLD.amount, OLD.gst, OLD.tatal_amount);
+
+desc bills;
+
+delete from bills where id=12;
+
+select * from backupBills;
+select * from salary;
